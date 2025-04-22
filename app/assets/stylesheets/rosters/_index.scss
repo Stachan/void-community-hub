@@ -1,0 +1,37 @@
+#card-roster {
+  position: relative;
+}
+
+#roster-faction-icon {
+  background-color: #B8332E;
+}
+
+#roster-title {
+  font-size: 4vw;
+}
+
+#roster-edition {
+  font-size: 3vw;
+}
+
+#roster-faction {
+  font-size: 3vw;
+}
+
+#roster-gameplay-info {
+  background-color: #B8332E;
+  color: white;
+  font-size: 4vw;
+}
+
+#roster-card-menu {
+  z-index: 5;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
