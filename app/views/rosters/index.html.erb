@@ -1,1 +1,31 @@
 <h1>This is the Roster Index</h1>
+<div>
+  <% @rosters.each do |roster| %>
+    <div class="card" id="card-roster">
+      <div class="row g-0">
+        <div class="col-2" id="roster-faction-icon">
+        </div>
+        <div class="col-7" id="roster-main-info">
+          <h5 class="card-title" id="roster-title"><%= roster.name %></h5>
+          <p id="roster-edition">Urban War Placeholder Text</p>
+          <p id="roster-faction">Junker (Faction Strike-Team)</p>
+        </div>
+        <div class="col-3 d-flex flex-row justify-content-end" id="roster-gameplay-info">
+          <span>
+            <p><%= roster.point_limit %> pts</p>
+            <p>Standard</p>
+          </span>
+          <span class="dropdown align-self-center" id="roster-card-menu">
+            <i class="bi bi-three-dots-vertical" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+      <%= link_to '', roster_path(roster), class: 'card-link' %>
+    </div>
+  <% end %>
+</div>
