@@ -7,8 +7,23 @@
 
 #cal-selector {
   background-color: lightblue;
-  font-size: 4vw;
   text-align: right;
+}
+
+#cal-selector input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#cal-selector div {
+  cursor: pointer;
+}
+
+#cal-selector input:checked + div {
+  background-color: #000;
+  color: #fff;
 }
 
 #unit-title-bar {
