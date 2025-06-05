@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_22_065607) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_05_145853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "rosters", force: :cascade do |t|
     t.string "name"
     t.integer "point_limit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "name"
+    t.integer "cal0_cost"
+    t.integer "cal1_cost"
+    t.integer "cal2_cost"
+    t.integer "cal3_cost"
+    t.integer "assault"
+    t.integer "shooting"
+    t.integer "strength"
+    t.integer "toughness"
+    t.integer "wound"
+    t.integer "command"
+    t.integer "size"
+    t.integer "move"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

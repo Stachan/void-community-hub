@@ -5,6 +5,7 @@ class RostersController < ApplicationController
 
   def show
     @roster = Roster.find(params[:id])
+    @units = Unit.all
   end
 
   def create
