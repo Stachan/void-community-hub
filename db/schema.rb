@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_05_145853) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_06_142912) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "roster_units", force: :cascade do |t|
+    t.string "flavor_name"
+    t.bigint "roster_id", null: false
+    t.bigint "unit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["roster_id"], name: "index_roster_units_on_roster_id"
+    t.index ["unit_id"], name: "index_roster_units_on_unit_id"
+  end
 
   create_table "rosters", force: :cascade do |t|
     t.string "name"
@@ -52,4 +62,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_05_145853) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "roster_units", "rosters"
+  add_foreign_key "roster_units", "units"
 end

@@ -42,7 +42,7 @@ puts "Rosters Initialized!"
 
 ### Test Units ###
 
-puts "Creating dummy rosters..."
+puts "Creating test units..."
 unit_seeds = [
   { name: "Legionary", cal0_cost: 19, cal1_cost: 26, cal2_cost: -1, cal3_cost: -1,
     assault: 3, shooting: 3, strength: 4, toughness: 4, wound: 1, command: 3,

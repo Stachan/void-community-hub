@@ -6,18 +6,24 @@
         <!-- <div class="col-3" id="unit-portrait"></div> -->
         <div class="col-4" id="cal-selector">
           <div>CAL</div>
-          <label for="lowest-cal" class="form-check-label d-flex justify-content-end">
-            <input type="radio" class="form-check-input" id="lowest-cal" name="calibre">
-            <div class="form-check">1</div>
-          </label>
-          <label for="mid-cal" class="form-check-label d-flex justify-content-end">
-            <input type="radio" class="form-check-input" id="mid-cal" name="calibre">
-            <div class="form-check">2</div>
-          </label>
-          <label for="highest-cal" class="form-check-label d-flex justify-content-end">
-            <input type="radio" class="form-check-input" id="highest-cal" name="calibre">
-            <div class="form-check">3</div>
-          </label>
+          <% cal_array = [] %>
+          <% cal_btn_limit = 3 %>
+          <% unit.cal0_cost != -1 ? cal_array.push([0, unit.cal0_cost]) : nil %>
+          <% unit.cal1_cost != -1 ? cal_array.push([1, unit.cal1_cost]) : nil %>
+          <% unit.cal2_cost != -1 ? cal_array.push([2, unit.cal2_cost]) : nil %>
+          <% unit.cal3_cost != -1 ? cal_array.push([3, unit.cal3_cost]) : nil %>
+          <% cal_array.each do |cal| %>
+            <label for="cal-btn-<%= cal[0] %>" class="form-check-label d-flex justify-content-end">
+              <input type="radio" class="form-check-input" id="cal-btn-<%= cal[0] %>" name="<%= unit.name %>-calibre">
+              <div class="form-check"><%= cal[0] %></div>
+            </label>
+            <% cal_btn_limit -= 1 %>
+          <% end %>
+          <% if cal_btn_limit > 0 %>
+            <% cal_btn_limit.times do %>
+              <div id="cal-btn-placeholder">N/A</div>
+            <% end %>
+          <% end %>
         </div>
         <div class="col-8">
           <div class="row">
